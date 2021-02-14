@@ -1,6 +1,6 @@
 package advanced
 
-object ADTs {
+object ADTs extends App{
 
   // way of structuring your data
 
@@ -42,8 +42,16 @@ object ADTs {
 
   def naiveFeeling(weather:String) = weather match {
     case "sunny" => ":)"
+    case _ => "Not supported :("
     // other cases
   }
 
   naiveFeeling("45 degrees")
+
+  // complexity = number of possible values of the ADT
+  // goal: reduce complexity
+
+  sealed trait WeatherServerError
+  case object NotAvailable extends WeatherServerError
+
 }
